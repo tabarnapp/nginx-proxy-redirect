@@ -8,6 +8,9 @@ fi
 if [ -z "$VIRTUAL_HOST" ]; then
   echo "Virtual host not set, needed for nginx-proxy to create the listen files. [VIRTUAL_HOST]" 
 fi
+if [ -z "$LETSENCRYPT_HOST" ]; then
+  echo "Let's encrypt host not set, needed for nginx-proxy to create the listen files. [LETSENCRYPT_HOST]" 
+fi
 
 if [ -z "$REDIRECT_TARGET" ]; then
 	echo "Redirect target variable not set [REDIRECT_TARGET]"

@@ -4,7 +4,7 @@
 This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy/) and it redirects all web traffic to the given target domain/URL.
 
 ## Features ##
-- only running process is `tail -f /dev/null`
+- Only running process is `tail -f /dev/null`  ~1.25MB RAM used
 - Keeps the URL path and GET parameters
 - Permanent or temporary redirect
 
@@ -13,7 +13,7 @@ This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com
 The target domain/URL is set by the `REDIRECT_TARGET` environment variable.  
 Possible redirect targets include domains (`mydomain.net`), paths (`mydomain.net/my_page`) or specific protocols (`https://mydomain.net/my_page`).  
 
-**Example:** `$ docker run -d --volumes-from nginx-proxy -e VIRTUAL_HOST=myolddomain.net -e REDIRECT_TARGET=https://mydomain.net tabarnapp/nginx-proxy-redirect`
+**Example:** `$ docker run -d --volumes-from nginx-proxy -e VIRTUAL_HOST=myolddomain.net -e LETSENCRYPT_HOST=myolddomain.net -e REDIRECT_TARGET=https://mydomain.net tabarnapp/nginx-proxy-redirect`
 
 ### Paths are retained ###
 The URL path and GET parameters are retained. That means that a request to `http://myolddomain.net/index.php?page=2` will be redirected to `http://mydomain.net/index.php?page=2` when `REDIRECT_TARGET=mydomain.net` is set.
@@ -37,11 +37,13 @@ services:
      - vhost:/etc/nginx/vhost.d
 
   redirect:
+    restart: always
     image: tabarnapp/nginx-proxy-redirect
     volumes_from:
       - nginx-proxy
     environment:
       - VIRTUAL_HOST=myolddomain.net
+      - LETSENCRYPT_HOST=myolddomain.net
       - REDIRECT_TARGET=mydomain.net
 volumes:
   vhost:
@@ -49,6 +51,6 @@ volumes:
 
 
 ## Changelog ##
-- **1.2 [latest]** - removed _location file when container is destroyed
+- **1.2 [latest]** - added env checking
 - **1.1** - added `tail -f /dev/null` command
 - **1.0** - initial version
