@@ -25,10 +25,12 @@ else
 fi
 
 
-cat <<EOF > /etc/nginx/vhost.d/${VIRTUAL_HOST}_location
+cat <<EOF > ~/${VIRTUAL_HOST}_location
 	rewrite ^/(.*)\$ ${REDIRECT_TARGET}\$1 ${REDIRECT_TYPE};
 EOF
 
+
+ln -s ~/${VIRTUAL_HOST}_location /etc/nginx/vhost.d/${VIRTUAL_HOST}_location
 echo "Redirecting requests from $VIRTUAL_HOST to ${REDIRECT_TARGET}..."
 
 tail -f /dev/null

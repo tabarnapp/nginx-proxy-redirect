@@ -49,5 +49,6 @@ volumes:
 
 
 ## Changelog ##
-- **1.1 [latest]** - added `tail -f /dev/null` command
+- **1.2 [latest]** - removed _location file when container is destroyed
+- **1.1** - added `tail -f /dev/null` command
 - **1.0** - initial version
