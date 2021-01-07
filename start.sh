@@ -30,3 +30,5 @@ cat <<EOF > /etc/nginx/vhost.d/${VIRTUAL_HOST}_location
 EOF
 
 echo "Redirecting requests from $VIRTUAL_HOST to ${REDIRECT_TARGET}..."
+
+tail -f /dev/null

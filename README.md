@@ -1,9 +1,10 @@
 # tabarnapp/nginx-proxy-redirect# 
+![Docker Build Status](https://img.shields.io/docker/automated/tabarnapp/nginx-proxy-redirect.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/tabarnapp/nginx-proxy-redirect.svg) ![Docker Stars](https://img.shields.io/docker/stars/tabarnapp/nginx-proxy-redirect.svg)
 
 This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy/) and it redirects all web traffic to the given target domain/URL.
 
 ## Features ##
-- Docker container only needs to run once
+- only running process is `tail -f /dev/null`
 - Keeps the URL path and GET parameters
 - Permanent or temporary redirect
 
@@ -48,4 +49,5 @@ volumes:
 
 
 ## Changelog ##
-- **1.0 [latest]** - initial version
+- **1.1 [latest]** - added `tail -f /dev/null` command
+- **1.0** - initial version
