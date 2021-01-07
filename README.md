@@ -25,8 +25,12 @@ Redirects are, by default, permanent (HTTP status code 301). That means browsers
 To make redirects temporary (HTTP status code 302) set the environment variable `REDIRECT_TYPE` to `redirect`.
 
 ## Docker Compose ##
- A sample docker-compose file that redirects `myolddomain.net` to `mydomain.net` could look like this:
+A sample docker-compose file that redirects `myolddomain.net` to `mydomain.net` could look like this:
 
+## Uninstall ## 
+Stopping and removing the container would not delete the created file. You need to go to `/etc/nginx/vhost.d` and delete the redirect conf from there as well. Filename should look like `${VIRTUAL_HOST}_location`.  
+
+Depending on your setup, the location might be mounted on the host or not. `docker exec -it nginx-proxy /bin/sh` should open up the bash console so you can go to the volume and delete it. 
 
 ```yaml
 version: '3'
