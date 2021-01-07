@@ -13,7 +13,7 @@ This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com
 The target domain/URL is set by the `REDIRECT_TARGET` environment variable.  
 Possible redirect targets include domains (`mydomain.net`), paths (`mydomain.net/my_page`) or specific protocols (`https://mydomain.net/my_page`).  
 
-**Example:** `$ docker run  --volumes-from nginx-proxy -e VIRTUAL_HOST=myolddomain.net -e REDIRECT_TARGET=https://mydomain.net tabarnapp/nginx-proxy-redirect`
+**Example:** `$ docker run -d --volumes-from nginx-proxy -e VIRTUAL_HOST=myolddomain.net -e REDIRECT_TARGET=https://mydomain.net tabarnapp/nginx-proxy-redirect`
 
 ### Paths are retained ###
 The URL path and GET parameters are retained. That means that a request to `http://myolddomain.net/index.php?page=2` will be redirected to `http://mydomain.net/index.php?page=2` when `REDIRECT_TARGET=mydomain.net` is set.
