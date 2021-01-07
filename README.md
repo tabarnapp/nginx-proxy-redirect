@@ -1,5 +1,5 @@
 # tabarnapp/nginx-proxy-redirect# 
-![Docker Build Status](https://img.shields.io/docker/automated/tabarnapp/nginx-proxy-redirect.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/tabarnapp/nginx-proxy-redirect.svg) ![Docker Stars](https://img.shields.io/docker/stars/tabarnapp/nginx-proxy-redirect.svg)
+![Docker Build Status](https://img.shields.io/docker/cloud/build/tabarnapp/nginx-proxy-redirect.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/tabarnapp/nginx-proxy-redirect.svg) ![Docker Stars](https://img.shields.io/docker/stars/tabarnapp/nginx-proxy-redirect.svg)
 
 This image can be combined with the [jwilder nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy/) and it redirects all web traffic to the given target domain/URL.
 
